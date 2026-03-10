@@ -1,8 +1,27 @@
 import readlinesync = require("readline-sync");
 import { colors } from './src/util/Colors';
+import { Conta } from "./src/model/Conta";
 
 export function main() {
+    
     let opcao: number;
+
+    // Objeto da Classe Conta (Teste)
+    const conta: Conta = new Conta(2, 234, 2, "Fernanda", 20000);
+    conta.visualizar();
+    conta.sacar(20500);
+    conta.visualizar();
+    conta.depositar(5000);
+    conta.visualizar();
+
+    const conta2: Conta = new Conta(298, 333, 1, "Elisangela", 4300);
+    conta.visualizar();
+    conta.sacar(100);
+    conta.visualizar();
+    conta.depositar(20);
+    conta.visualizar();
+
+
     while(true){
 
         console.log(colors.bg.black, colors.fg.yellow)       
@@ -33,7 +52,7 @@ export function main() {
             console.log("\nBanco do Brazil com Z - O seu futuro começa aqui!");
             sobre();
             console.log(colors.reset, "");
-            process.exit(0) 
+            process.exit(0) // força o terminal parar
         }
         
         switch(opcao){
