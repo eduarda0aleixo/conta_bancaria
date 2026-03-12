@@ -8,21 +8,6 @@ export function main() {
     
     let opcao: number;
 
-    // Objeto da Classe Conta (Teste)
-    const conta: Conta = new Conta(2, 234, 2, "Fernanda", 20000);
-    conta.visualizar();
-    conta.sacar(20500);
-    conta.visualizar();
-    conta.depositar(5000);
-    conta.visualizar();
-
-    const conta2: Conta = new Conta(298, 333, 1, "Elisangela", 4300);
-    conta2.visualizar();
-    conta2.sacar(100);
-    conta2.visualizar();
-    conta2.depositar(20);
-    conta2.visualizar();
-
     // Objeto da Classe ContaCorrente (Teste)
     const contacorrente: ContaCorrente = new ContaCorrente(1, 901, 5, "Maria", 5000, 1000);
     contacorrente.visualizar();
