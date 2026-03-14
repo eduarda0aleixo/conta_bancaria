@@ -50,7 +50,13 @@ export class ContaController implements ContaRepository{
     }
 
     sacar(numero: number, valor: number): void {
-        throw new Error("Method not implemented.");
+        let conta = this.buscarNoArray(numero);
+
+        if (conta != null){
+
+            if(conta.sacar(valor) == true)
+                console.log(colors.fg.green,"\nO Saque")
+        }
     }
 
     depositar(numero: number, valor: number): void {
