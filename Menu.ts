@@ -165,6 +165,10 @@ export function main() {
             case 5:
                 console.log(colors.fg.whitestrong,
                     "\n\nApagar uma conta \n\n", colors.reset);
+
+                    console.log("Digite o número da Conta: ");
+                    numero = readlinesync.questionInt("");
+                    contas.deletar(numero);
                
                 keyPress()
                 break;
