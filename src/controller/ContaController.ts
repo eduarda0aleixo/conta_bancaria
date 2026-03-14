@@ -49,7 +49,7 @@ export class ContaController implements ContaRepository{
             console.log(colors.fg.red,"\nA Conta número: "+ numero +" não foi encontrada!", colors.reset);
     }
 
-    public sacar(numero: number, valor: number): void {
+    sacar(numero: number, valor: number): void {
         let conta = this.buscarNoArray(numero);
 
         if (conta != null){
@@ -60,36 +60,29 @@ export class ContaController implements ContaRepository{
             console.log(colors.fg.red,"\nA Conta numero: "+ numero +" não foi encontrada!", colors.reset);
     }
 
-    public depositar(numero: number, valor: number): void {
-    let conta = this.buscarNoArray(numero);
+    depositar(numero: number, valor: number): void {
+        let conta = this.buscarNoArray(numero);
 
-    if (conta != null) {
-        conta.depositar(valor);
-        console.log(colors.fg.green, "\nO Depósito na Conta numero: " + numero + 
-            " foi efetuado com sucesso!", colors.reset);
-    } else {
-        console.log(colors.fg.red, "\nA Conta numero: " + numero + 
-            " não foi encontrada!", colors.reset);
+        if (conta != null) {
+            conta.depositar(valor);
+            console.log(colors.fg.green,"\nO Déposito na Conta número: "+ numero +" foi efetuado com sucesso!", colors.reset);
+        }else
+            console.log(colors.fg.red,"\nA Conta número: "+ numero +" não foi encontrada!", colors.reset);
     }
-}
 
-    public transferir(numeroOrigem: number, numeroDestino: number, valor: number): void {
-    let contaOrigem = this.buscarNoArray(numeroOrigem);
-    let contaDestino = this.buscarNoArray(numeroDestino);
+    transferir(numeroOrigem: number, numeroDestino: number, valor: number): void {
+        let contaOrigem = this.buscarNoArray(numeroOrigem);
+        let contaDestino = this.buscarNoArray(numeroDestino);
 
-    if (contaOrigem != null && contaDestino != null) {
-        if (contaOrigem.sacar(valor) == true) {
-            contaDestino.depositar(valor);
-            console.log(colors.fg.green, "\nA Transferência da Conta numero: " + numeroOrigem +
-                " para a Conta numero: " + numeroDestino + " foi efetuada com sucesso!",
-                colors.reset);
-        }
-    } else {
-        console.log(colors.fg.red, "\nA Conta numero: " + numeroOrigem +
-            " e/ou a Conta numero: " + numeroDestino + " não foram encontradas!",
-            colors.reset);
+        if (contaOrigem != null && contaDestino != null) {
+            if(contaOrigem.sacar(valor) == true){
+                contaDestino.depositar(valor);
+                console.log(colors.fg.green,"\nA Tranferência da Conta número: "+ numeroOrigem +" para a Conta número: "+ numeroDestino +" foi efetuada com sucesso!", colors.reset);
+            }
+            
+        }else
+            console.log(colors.fg.red,"\nA Conta número: "+ numeroOrigem + " e/ou a Conta número: "+ numeroDestino +" não foram encontradas!", colors.reset);
     }
-}
 
     // Métodos Auxiliares
 
